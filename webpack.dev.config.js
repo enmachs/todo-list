@@ -12,13 +12,13 @@ module.exports = {
   },
   // Setup server
   devServer: {
-    inline: true,
+    inline: false,
     port: 9000
   },
   devtool: 'eval-source-map',
   module: {
     // JS, JSX and SASS loaders
-    loaders: [
+    rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
