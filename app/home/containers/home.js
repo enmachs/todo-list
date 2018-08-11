@@ -3,6 +3,8 @@ import HomeLayout from '../components/home-layout';
 
 // Cards
 import CardsContainer from '../../cards/containers/index';
+import ModalContainer from '../../cards/containers/modal-card';
+import Modal from '../../cards/components/modal';
 
 // Sidebar
 import Sidebar from '../../sidebar/containers/sidebar';
@@ -24,18 +26,11 @@ class Home extends Component {
         {
           id: '4',
           title: 'Enmanuel',
-          color: '#000'
+          color: '#000',
+          playlist: []
         }
       ]
-    })
-    // this.props.data.cards = [
-    //   ...that.props.data.cards,
-    //   {
-    //     id: '4',
-    //     title: 'Enmanuel',
-    //     color: '#000'
-    //   }
-    // ]
+    });
     console.log(this.state.cards) 
   }
   render () {
@@ -47,7 +42,9 @@ class Home extends Component {
         <Sidebar 
           addCard={this.addNewCard}
         />
-        
+        <ModalContainer>
+          <Modal />
+        </ModalContainer>
       </HomeLayout>
     )
   }

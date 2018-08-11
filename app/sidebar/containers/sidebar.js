@@ -11,7 +11,9 @@ class SidebarContainer extends PureComponent {
         <button 
           type="button"
           class="btn btn-regular"
-          onClick={this.props.addCard}
+          data-toggle="modal" 
+          data-target="#modal"
+          // onClick={this.props.addCard}
         >
           Primary
         </button>
