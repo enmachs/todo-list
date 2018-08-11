@@ -12,7 +12,7 @@ module.exports = {
   },
   // Setup server
   devServer: {
-    inline: false,
+    inline: true,
     port: 9000
   },
   devtool: 'eval-source-map',

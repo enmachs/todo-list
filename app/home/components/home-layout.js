@@ -3,8 +3,10 @@ import './layout.sass'
 
 const HomeLayout = (props) => {
   return (
-    <div className="home-layout">
-      { props.children }
+    <div className="home-layout container-fluid">
+      <div className="row">
+        { props.children }
+      </div>
     </div>
   )
 }

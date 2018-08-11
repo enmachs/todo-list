@@ -1,10 +1,13 @@
 import React from 'react';
+import './styles/layout-cards.sass'
 
 const CardsLayout = (props) => {
 
   return (
-    <div className="cards-layout">
-      <h3>Cards</h3>
+    <div className="col-lg-11">
+      <div className="cards-layout container-fluid">
+        {props.children}
+      </div>
     </div>
   )
 }
