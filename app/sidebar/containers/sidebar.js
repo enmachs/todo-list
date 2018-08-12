@@ -1,22 +1,39 @@
 import React, { PureComponent } from 'react';
 import Layout from '../components/layout';
+import NewCardButton from '../components/buttons/new-card';
+import { Button, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 
-// import data from '../../api.json';
+import Form from '../../cards/components/form';
 
 class SidebarContainer extends PureComponent {
+  // renderForm = () => {
+  //   let form = new Form()
+  //   return form.render()
+  // }
+  state = {
+    popoverOpen: false
+  }
 
+  togglePopover = () => {
+    this.setState({
+      popoverOpen: !this.state.popoverOpen
+    });
+  }
+  componentDidMount(){
+    console.log(this.props.addCard)
+  }
   render(){
     return (
       <Layout>
-        <button 
-          type="button"
-          class="btn btn-regular"
-          data-toggle="modal" 
-          data-target="#modal"
-          // onClick={this.props.addCard}
+        <NewCardButton
+          handleToggleClick={this.togglePopover}
+          OpenPopover={this.state.popoverOpen}
         >
-          Primary
-        </button>
+          <Form 
+            handleNewCard={this.props.addCard}
+            togglePopover={this.togglePopover}
+          />
+        </NewCardButton>
       </Layout>
     )
   }

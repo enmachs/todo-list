@@ -16,22 +16,25 @@ import data from '../../api.json';
 
 class Home extends Component {
   state = {
-    cards: data.cards
+    cards: data.cards,
+    // modalInner: null
   }
-  addNewCard = () => {
+  // setModalInner = (component) => {
+  //   this.setState({
+  //     modalInner: component
+  //   })
+  // }
+  addNewCard = (newCard) => {
     const that = this;
     that.setState({
       cards: [
         ...that.state.cards,
-        {
-          id: '4',
-          title: 'Enmanuel',
-          color: '#000',
-          playlist: []
-        }
+        newCard
       ]
     });
-    console.log(this.state.cards) 
+    // alert(ev)
+    // ev.preventDefault();
+    // console.log(this.state.cards)
   }
   render () {
     return (
@@ -43,7 +46,9 @@ class Home extends Component {
           addCard={this.addNewCard}
         />
         <ModalContainer>
-          <Modal />
+          <Modal>
+            <h5>Info of card</h5>
+          </Modal>
         </ModalContainer>
       </HomeLayout>
     )
