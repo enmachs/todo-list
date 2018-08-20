@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import Layout from '../components/layout';
 import NewCardButton from '../components/buttons/new-card';
-import { Button, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 
 import Form from '../../cards/components/form';
 
@@ -20,7 +19,7 @@ class SidebarContainer extends PureComponent {
     });
   }
   componentDidMount(){
-    console.log(this.props.addCard)
+    // console.log(this.props.addCard)
   }
   render(){
     return (

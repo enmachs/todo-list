@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Form, Icon, Input, Button } from 'antd';
 import './styles/form.sass'
 // import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 
@@ -22,10 +23,11 @@ class CardForm extends PureComponent {
     return (
       <div id="new-card-form">
         <div id="card-form">
-          <form className="form-horizontal" onSubmit={this.handleSubmit}>
-            <input type="text" className="form-control" ref={(input) => this.input = input}/>
+          <Form className="form-horizontal" onSubmit={this.handleSubmit}>
+            <Input placeholder="" ref={(input) => this.input = input} />
+            {/* <input type="text" className="form-control" ref={(input) => this.input = input}/> */}
             <input type="submit" value="Submit" />
-          </form>
+          </Form>
         </div>
       </div>
     )

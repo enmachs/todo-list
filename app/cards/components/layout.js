@@ -1,11 +1,12 @@
 import React from 'react';
-import './styles/layout-cards.sass'
+
+import './styles/layout-cards.scss'
 
 const CardsLayout = (props) => {
 
   return (
     <div className="col-lg-11">
-      <div className="cards-layout container-fluid">
+      <div id='cards-section' className="cards-layout container-fluid">
         {props.children}
       </div>
     </div>

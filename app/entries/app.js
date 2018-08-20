@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom'
 
 import $ from 'jquery';
 window.$ = $;
+import 'antd/dist/antd.css';
 // import Popper from 'popper.js/dist/popper.js'
-import 'bootstrap/scss/bootstrap.scss';
+
+// import 'bootstrap/scss/bootstrap.scss';
+
 // import 'bootstrap/dist/js/bootstrap.js';
 // Popper.Defaults.modifiers.computeStyle.gpuAcceleration = !(window.devicePixelRatio < 1.5 && /Win/.test(navigator.platform));
 

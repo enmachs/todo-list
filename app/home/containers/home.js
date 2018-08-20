@@ -12,6 +12,8 @@ import Sidebar from '../../sidebar/containers/sidebar';
 // Data
 import data from '../../api.json';
 
+// antd layout
+import { Row, Col } from 'antd';
 
 
 class Home extends Component {
@@ -39,17 +41,18 @@ class Home extends Component {
   render () {
     return (
       <HomeLayout>
-        <CardsContainer 
-          cards={this.state.cards}
-        />
-        <Sidebar 
-          addCard={this.addNewCard}
-        />
-        <ModalContainer>
-          <Modal>
-            <h5>Info of card</h5>
-          </Modal>
-        </ModalContainer>
+        <Row>
+          <Col span={20}>
+            <CardsContainer 
+              cards={this.state.cards}
+            />  
+          </Col>
+          <Col span={4}>
+            <Sidebar 
+              addCard={this.addNewCard}
+            />
+          </Col>
+        </Row>
       </HomeLayout>
     )
   }
