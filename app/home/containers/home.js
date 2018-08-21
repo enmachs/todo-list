@@ -10,15 +10,16 @@ import Modal from '../../cards/components/modal';
 import Sidebar from '../../sidebar/containers/sidebar';
 
 // Data
-import data from '../../api.json';
+import data from '../../api';
 
 // antd layout
 import { Row, Col } from 'antd';
 
+import HeaderLayout from '../../header/components/layout';
 
 class Home extends Component {
   state = {
-    cards: data.cards,
+    cards: data,
     // modalInner: null
   }
   // setModalInner = (component) => {
@@ -42,16 +43,15 @@ class Home extends Component {
     return (
       <HomeLayout>
         <Row>
-          <Col span={20}>
-            <CardsContainer 
-              cards={this.state.cards}
-            />  
-          </Col>
-          <Col span={4}>
-            <Sidebar 
-              addCard={this.addNewCard}
-            />
-          </Col>
+          <HeaderLayout />
+        </Row>
+        <Row>
+          <CardsContainer 
+            cards={this.state.cards}
+          />  
+          {/* <Sidebar 
+            addCard={this.addNewCard}
+          /> */}
         </Row>
       </HomeLayout>
     )
