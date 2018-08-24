@@ -7,7 +7,7 @@ import ModalContainer from '../../cards/containers/modal-card';
 import Modal from '../../cards/components/modal';
 
 // Sidebar
-import Sidebar from '../../sidebar/containers/sidebar';
+import Menu from '../../menu/containers/menu';
 
 // Data
 import data from '../../api';
@@ -29,6 +29,9 @@ class Home extends Component {
   // }
   addNewCard = (newCard) => {
     const that = this;
+
+    newCard.id = that.state.cards.length + 1
+    // console.log(newCard)
     that.setState({
       cards: [
         ...that.state.cards,
@@ -43,7 +46,11 @@ class Home extends Component {
     return (
       <HomeLayout>
         <Row>
-          <HeaderLayout />
+          <HeaderLayout>
+            <Menu 
+              addCard={this.addNewCard}
+            />
+          </HeaderLayout>
         </Row>
         <Row>
           <CardsContainer 

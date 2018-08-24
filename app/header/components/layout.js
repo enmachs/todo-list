@@ -1,7 +1,7 @@
 import React from 'react';
-import { Layout, Row, Col } from 'antd';
+import { Layout, Row, Col, Icon, Button } from 'antd';
 const { Header } = Layout;
-import { Button, Icon, Input, Dropdown, Menu, Switch } from 'antd'
+import './styles/layout.scss';
 
 const HeaderLayout = (props) => {
 
@@ -11,7 +11,7 @@ const HeaderLayout = (props) => {
       className="header"
     >
       <Row>
-        <Col span={4}>
+        <Col span={2}>
           <img 
             className="logo"
             src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
@@ -19,6 +19,9 @@ const HeaderLayout = (props) => {
         </Col>
         <Col span={20}>
           <a href="#">Link</a>
+        </Col>
+        <Col span={2}>
+          { props.children }
         </Col>
       </Row>
 

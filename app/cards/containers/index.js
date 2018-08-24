@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import data from '../../api';
+// import data from '../../api';
 import CardsLayout from './../components/layout';
 import Card from './../components/card';
 // import { Icon, List } from 'antd'
@@ -17,7 +17,7 @@ class CardsContainer extends Component {
         <Grid
           className="grid"
           // Arbitrary data, should contain keys, possibly heights, etc.
-          data={data}
+          data={this.props.cards}
           // Key accessor, instructs grid on how to fet individual keys from the data set
           keys={d => d.name}
           // Can be a fixed value or an individual data accessor

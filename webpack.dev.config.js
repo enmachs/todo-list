@@ -16,6 +16,7 @@ module.exports = {
     port: 9000
   },
   devtool: 'eval-source-map',
+  mode: 'development',
   module: {
     // JS, JSX and SASS loaders
     rules: [
