@@ -16,13 +16,13 @@ const Card = (props) => {
     <Fade show={maximized} delay={maximized ? 400 : 0}>
       <div className="details">
         <Slug delay={600}>
-          <div style={{ height: '100%', overflowY: 'auto' }}>
-            <div className="circle" style={{ background: css }} />
+          <div style={{ height: '100%', overflowY: 'hidden' }}>
+            {/* <div className="circle" style={{ background: css }} /> */}
             <div className="close">
               <Icon type="close" style={{ cursor: 'pointer' }} onClick={toggle} />
             </div>
-            <h1>{name}</h1>
-            <p>{description}</p>
+            <span className="title">{ name }</span>
+            { props.children }
           </div>
         </Slug>
       </div>

@@ -4,13 +4,13 @@ import CardsLayout from './../components/layout';
 import Card from './../components/card';
 // import { Icon, List } from 'antd'
 
+// Groups
+import GroupContainer from "../../groups/containers/GroupContainer";
+
 import { Grid } from 'mauerwerk';
+// import GroupLayout from '../../groups/components/GroupLayout';
 
 class CardsContainer extends Component {
-  state = {
-    open: true
-  }
-
   render(){
     return (
       <CardsLayout>
@@ -28,7 +28,11 @@ class CardsContainer extends Component {
           columns={5}>
           
           {(data, maximized, toggle) => (
-            <Card {...data} maximized={maximized} toggle={toggle} />
+            <Card {...data} maximized={maximized} toggle={toggle} >
+              <GroupContainer 
+                card={data}
+              />
+            </Card>
           )}
         </Grid>
       </CardsLayout>

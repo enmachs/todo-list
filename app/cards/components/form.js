@@ -1,34 +1,55 @@
 import React, { PureComponent } from 'react';
 import { Form, Icon, Input, Button } from 'antd';
-import './styles/form.sass'
-import { BlockPicker } from 'react-color';
+import './styles/form.scss'
+import { GithubPicker, TwitterPicker, BlockPicker } from 'react-color';
 // import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 
 
 class CardForm extends PureComponent {
 
   state = {
-    input: '',
-    color: ''
+    title: '',
+    color: '#000000',
+    displayColorPicker: false
   }
 
   handleSubmit = (e) => {
     let newCard = {
-      // css: `linear-gradient(to top, #fff 0%, ${this.colorInput.input.value} 100%)`,
-      name: this.cardInput.input.value
+      css: `linear-gradient(to top, #eee 0%, ${this.state.color} 100%)`,
+      name: this.state.title
     }
-    console.log(this.colorInput)
-    // this.colorInput.input.value = '#000'
-    // this.cardInput.input.value = ''
     this.props.handleNewCard(newCard)
     this.props.togglePopover()
+    this.handleClearInput()
     e.preventDefault();
   }
 
-  handleChange = (color, e) => {
-    console.log(color)
+  handleTogglePicker = () => {
+    this.setState({ displayColorPicker: !this.state.displayColorPicker })
+  };
+
+  handleClosePicker = () => {
+    this.setState({ displayColorPicker: false })
+  };
+
+  handleClearInput = () => {
+    this.setState({
+      color: '#000000',
+      title: ''
+    })
+  }
+
+  handleChangePicker = (color, ev) => {
+    // console.log(color)
     this.setState({
       color: color.hex
+    })
+    this.handleClosePicker();
+  }
+
+  handleChangeInput = (ev) => {
+    this.setState({
+      [ev.target.name]: ev.target.value
     })
   }
 
@@ -37,12 +58,28 @@ class CardForm extends PureComponent {
       <div id="card-form">
         <Form className="form-horizontal" onSubmit={this.handleSubmit}>
           <Input 
-            placeholder="" 
-            ref={input => this.cardInput = input} 
+            placeholder="Title"
+            name="title"
+            value={this.state.title}
+            onChange={this.handleChangeInput}
+            // ref={input => this.cardInput = input} 
           />
-          <BlockPicker value={ this.state.color } onChange={ this.handleChange } />  
-          {/* <input type="submit"/> */}
-          {/* <Input type="color" ref={input => this.colorInput = input} /> */}
+          <div className="picker">
+            <div className="swatch" onClick={ this.handleTogglePicker }>
+              <div 
+                className="color"
+                style={{background: this.state.color}}
+              />
+            </div>
+            { 
+              this.state.displayColorPicker ? 
+              <div className="popover">
+                <div className="cover" onClick={ this.handleClosePicker }/>
+                <TwitterPicker color={ this.state.color } onChange={ this.handleChangePicker } />
+              </div> : null
+            }
+          </div>
+          <Input type="submit" value="Crear"/>
         </Form>
       </div>
     )

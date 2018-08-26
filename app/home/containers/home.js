@@ -19,14 +19,8 @@ import HeaderLayout from '../../header/components/layout';
 
 class Home extends Component {
   state = {
-    cards: data,
-    // modalInner: null
+    cards: data.cards
   }
-  // setModalInner = (component) => {
-  //   this.setState({
-  //     modalInner: component
-  //   })
-  // }
   addNewCard = (newCard) => {
     const that = this;
 
@@ -38,9 +32,6 @@ class Home extends Component {
         newCard
       ]
     });
-    // alert(ev)
-    // ev.preventDefault();
-    // console.log(this.state.cards)
   }
   render () {
     return (
