@@ -23,9 +23,7 @@ class Home extends Component {
   }
   addNewCard = (newCard) => {
     const that = this;
-
     newCard.id = that.state.cards.length + 1
-    // console.log(newCard)
     that.setState({
       cards: [
         ...that.state.cards,

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Form, Icon, Input, Button } from 'antd';
-import './styles/form.scss'
+import './Form.scss'
 import { GithubPicker, TwitterPicker, BlockPicker } from 'react-color';
 // import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 
@@ -64,7 +64,7 @@ class CardForm extends PureComponent {
             onChange={this.handleChangeInput}
             // ref={input => this.cardInput = input} 
           />
-          <div className="picker">
+          {/* <div className="picker">
             <div className="swatch" onClick={ this.handleTogglePicker }>
               <div 
                 className="color"
@@ -78,7 +78,7 @@ class CardForm extends PureComponent {
                 <TwitterPicker color={ this.state.color } onChange={ this.handleChangePicker } />
               </div> : null
             }
-          </div>
+          </div> */}
           <Input type="submit" value="Crear"/>
         </Form>
       </div>

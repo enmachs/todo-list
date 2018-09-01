@@ -42,7 +42,25 @@ module.exports = {
             name: 'images/[name].[hash].[ext]'
           }
         }
-      }
+      },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   // include: path.appSrc,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       plugins: [
+      //           ["module-resolver", {
+      //           "root": ["./app"],
+      //           "alias": {
+      //             "test": "./test",
+      //           }
+      //         }]
+      //       ],
+      //       cacheDirectory: true
+      //     }
+      //   }
+      // }
     ]
   }
 };
