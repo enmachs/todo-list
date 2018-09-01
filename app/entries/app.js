@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-// Import app styles
-// require('./scss/style.scss');
+// Import antd CSS
+import 'antd/dist/antd.css';
 
 // Import component
-import MyComponent from './../card/card-layout.jsx';
+import Home from './../screens/Home/Home';
 
-ReactDOM.render(<MyComponent />, document.getElementById('app'));
+ReactDOM.render(<Home />, document.getElementById('app'));
