@@ -16,6 +16,7 @@ module.exports = {
     port: 9000
   },
   devtool: 'eval-source-map',
+  mode: 'development',
   module: {
     // JS, JSX and SASS loaders
     rules: [
@@ -28,7 +29,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(scss|sass)$/,
+        test: /\.(css|scss|sass)$/,
         loaders: ["style-loader", "css-loader", "sass-loader"]
       },
       {
@@ -41,7 +42,25 @@ module.exports = {
             name: 'images/[name].[hash].[ext]'
           }
         }
-      }
+      },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   // include: path.appSrc,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       plugins: [
+      //           ["module-resolver", {
+      //           "root": ["./app"],
+      //           "alias": {
+      //             "test": "./test",
+      //           }
+      //         }]
+      //       ],
+      //       cacheDirectory: true
+      //     }
+      //   }
+      // }
     ]
   }
 };
