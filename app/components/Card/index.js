@@ -9,7 +9,8 @@ import CardLayout from './Layout/Layout';
 
 // import { Grid } from 'mauerwerk';
 import { Drawer, Button, Col, Row } from 'antd';
-import Card from './ThumbCard';
+import Card from './ThumbCard/ThumbCard';
+import FullCard from './FullCard/FullCard';
 
 // import GroupLayout from '../../groups/components/GroupLayout';
 
@@ -57,16 +58,11 @@ class CardsContainer extends Component {
             })
           }
         </Row>
-        <Drawer
-          title={this.state.singleCard.name}
-          placement="right"
-          closable={true}
-          width='60%'
-          onClose={this.onClose}
+        <FullCard 
+          card={this.state.singleCard}
           visible={this.state.visible}
-        >
-          <p>{this.state.singleCard.description}</p>
-        </Drawer>
+          handleOnClose={this.onClose}
+        />
       </CardLayout>
     )
   }
