@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Group
+import Group from '../../Group/Group';
+
 // antd styles
 import { Drawer } from 'antd';
 
@@ -20,7 +23,9 @@ const FullCard = (props) => {
       onClose={handleOnClose}
       visible={visible}
     >
-      <p>{card.description}</p>
+      <Group 
+        card={card}
+      />
     </Drawer>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/group-layout.scss'
+import './Layout.scss'
 
 const GroupLayout = (props) => {
 

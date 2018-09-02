@@ -1,34 +1,4 @@
 var cards = [
-  // {
-  //   name: 'Rare Wind',
-  //   description: '#a8edea → #fed6e3',
-  //   css: 'linear-gradient(to top, #a8edea 0%, #fed6e3 100%)',
-  //   height: 200
-  // },
-  // {
-  //   name: 'Saint Petersburg',
-  //   description: '#f5f7fa → #c3cfe2',
-  //   css: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
-  //   height: 400
-  // },
-  // {
-  //   name: 'Deep Blue',
-  //   description: '#e0c3fc → #8ec5fc',
-  //   css: 'linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)',
-  //   height: 400
-  // },
-  // {
-  //   name: 'Ripe Malinka',
-  //   description: '#f093fb → #f5576c',
-  //   css: 'linear-gradient(120deg, #f093fb 0%, #f5576c 100%)',
-  //   height: 400
-  // },
-  // {
-  //   name: 'Perfect White',
-  //   description: '#fdfbfb → #ebedee',
-  //   css: 'linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%)',
-  //   height: 400
-  // },
   {
     id: 1,
     name: 'Near Moon',
@@ -164,9 +134,68 @@ var groups = [
 ]
 
 var tasks = [
-
+  {
+    id: 1,
+    name: 'Task 1',
+    group_id: 2,
+    completed: false
+  },
+  {
+    id: 2,
+    name: 'Task 2',
+    group_id: 2,
+    completed: true
+  },
+  {
+    id: 3,
+    name: 'Task 3',
+    group_id: 4,
+    completed: false
+  },
+  {
+    id: 4,
+    name: 'Task 4',
+    group_id: 7,
+    completed: false
+  },
+  {
+    id: 5,
+    name: 'Task 5',
+    group_id: 3,
+    completed: true
+  },
+  {
+    id: 6,
+    name: 'Task 6',
+    group_id: 5,
+    completed: false
+  },
+  {
+    id: 7,
+    name: 'Task 7',
+    group_id: 1,
+    completed: false
+  },
+  {
+    id: 8,
+    name: 'Task 8',
+    group_id: 8,
+    completed: true
+  },
+  {
+    id: 9,
+    name: 'Task 9',
+    group_id: 3,
+    completed: false
+  },
+  {
+    id: 10,
+    name: 'Task 10',
+    group_id: 3,
+    completed: false
+  }
 ]
 
 export default {
-  cards, groups
+  cards, groups, tasks
 }

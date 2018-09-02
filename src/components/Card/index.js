@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 // import data from '../../api';
 import CardLayout from './Layout/Layout';
 // import Card from './../components/card';
@@ -14,7 +14,7 @@ import FullCard from './FullCard/FullCard';
 
 // import GroupLayout from '../../groups/components/GroupLayout';
 
-class CardsContainer extends Component {
+class CardsContainer extends PureComponent {
   state = { 
     visible: false,
     width: 520,

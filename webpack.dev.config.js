@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   // JavaScript entry point
   entry: {
-    'app': path.resolve(__dirname, 'app/entries/app.js'),
+    'app': path.resolve(__dirname, 'src/entries/app.js'),
   },
   // JavaScrip bundle file
   output: {
