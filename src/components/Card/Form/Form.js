@@ -16,6 +16,7 @@ class CardForm extends PureComponent {
   handleSubmit = (e) => {
     let newCard = {
       // css: `linear-gradient(to top, #eee 0%, ${this.state.color} 100%)`,
+      // id: 30,
       name: this.state.title
     }
     this.props.handleNewCard(newCard)

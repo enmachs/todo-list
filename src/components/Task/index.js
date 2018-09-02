@@ -9,13 +9,15 @@ const FormItem = Form.Item;
 class Tasks extends PureComponent {
 
   state = {
-    tasks: []
+    tasks: data.tasks
   }
 
   componentDidMount(){
-    this.setState({
-      tasks: data.tasks
-    })
+
+    // this.setState({
+    //   tasks: data.tasks
+    // })
+    // console.table(this.state.tasks)
   }
 
   handleChecked = (taskId) => {
@@ -23,37 +25,44 @@ class Tasks extends PureComponent {
 
     var copy = this.state.tasks.map(task => {
       if(task.id == taskId){
-        var newTask = {
+        // debugger
+        return {
           id: task.id,
           name: task.name,
           group_id: task.group_id,
           completed: !task.completed
         }
-        return newTask
       }
       return task
-      // task.id == taskId
     })
     this.setState({
       tasks: copy
     })
-    // task.completed = !task.completed;
+
+    console.table(copy)
   }
 
   render(){
     const tasks = this.state.tasks.filter(task => task.group_id == this.props.groupId)
     return (
-      <Form layout='horizontal'>
+      <Form 
+        layout='horizontal'
+        style={{ paddingLeft: '24px' }}
+      >
         {
           tasks.map(task => {
             return (
-              <FormItem>
+              <FormItem
+                key={ task.id }
+                labelCol={{span: 3}}
+                wrapperCol={{ span: 14 }}
+                style={{ marginBottom: '6px' }}
+              >
                 <Checkbox
-                  key={task.id}
-                  checked={task.completed}
+                  checked={ task.completed }
                   onClick={() => this.handleChecked(task.id)}
                 >
-                  {task.name}
+                  { task.name }
                 </Checkbox>
               </FormItem>
             )

@@ -20,30 +20,24 @@ import Cards from '../../components/Card';
 
 
 // Data
-import data from '../../api';
+// import data from '../../api';
 
 // antd layout
 import { Row, Col } from 'antd';
 
 class Home extends Component {
-  state = {
-    cards: []
-  }
+  // state = {
+  //   cards: []
+  // }
   addNewCard = (newCard) => {
-    const that = this;
-    newCard.id = that.state.cards.length + 1
-    that.setState({
-      cards: [
-        ...that.state.cards,
-        newCard
-      ]
-    });
+    this.cardChild.addCard(newCard);
   }
-  componentDidMount(){
-    this.setState({
-      cards: data.cards
-    })
-  }
+  // componentDidMount(){
+  //   this.setState({
+  //     cards: data.cards
+  //     // tasks: data.tasks
+  //   })
+  // }
   render () {
     return (
       <HomeLayout>
@@ -60,11 +54,11 @@ class Home extends Component {
                 addCard={this.addNewCard}
               />
             </Col>
-          </HeaderLayout>
 
+          </HeaderLayout>
         </Row>
-        <Cards 
-          cards={this.state.cards}
+        <Cards
+          ref={instance => {this.cardChild = instance}}
         />
       </HomeLayout>
     )
