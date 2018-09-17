@@ -1,20 +1,20 @@
 import React from "react";
 // import './styles/card.sass';
 import { Icon } from 'antd'
-// import { Slug, Fade } from 'mauerwerk';
+import './ThumbCard.scss';
 import { Card } from 'antd';
 
 
-const SingleCard = (props) => {
+const ThumbCard = (props) => {
   return (
     <Card
-      title={props.card.name}
+      className="single-card"
       onClick={() => props.handleSelectCard(props.card)}
     >
-      <h3>{props.card.description}</h3>
+      <h3>{ props.card.name }</h3>
       {/* <p>{card.description}</p> */}
     </Card>  
   )
 }
 
-export default SingleCard;
+export default ThumbCard;

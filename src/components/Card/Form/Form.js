@@ -15,7 +15,8 @@ class CardForm extends PureComponent {
 
   handleSubmit = (e) => {
     let newCard = {
-      css: `linear-gradient(to top, #eee 0%, ${this.state.color} 100%)`,
+      // css: `linear-gradient(to top, #eee 0%, ${this.state.color} 100%)`,
+      // id: 30,
       name: this.state.title
     }
     this.props.handleNewCard(newCard)
@@ -34,7 +35,7 @@ class CardForm extends PureComponent {
 
   handleClearInput = () => {
     this.setState({
-      color: '#000000',
+      // color: '#000000',
       title: ''
     })
   }
@@ -55,33 +56,31 @@ class CardForm extends PureComponent {
 
   render(){
     return (
-      <div id="card-form">
-        <Form className="form-horizontal" onSubmit={this.handleSubmit}>
-          <Input 
-            placeholder="Title"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleChangeInput}
-            // ref={input => this.cardInput = input} 
-          />
-          {/* <div className="picker">
-            <div className="swatch" onClick={ this.handleTogglePicker }>
-              <div 
-                className="color"
-                style={{background: this.state.color}}
-              />
-            </div>
-            { 
-              this.state.displayColorPicker ? 
-              <div className="popover">
-                <div className="cover" onClick={ this.handleClosePicker }/>
-                <TwitterPicker color={ this.state.color } onChange={ this.handleChangePicker } />
-              </div> : null
-            }
-          </div> */}
-          <Input type="submit" value="Crear"/>
-        </Form>
-      </div>
+      <Form onSubmit={this.handleSubmit}>
+        <Input 
+          placeholder="Title"
+          name="title"
+          value={this.state.title}
+          onChange={this.handleChangeInput}
+          // ref={input => this.cardInput = input} 
+        />
+        {/* <div className="picker">
+          <div className="swatch" onClick={ this.handleTogglePicker }>
+            <div 
+              className="color"
+              style={{background: this.state.color}}
+            />
+          </div>
+          { 
+            this.state.displayColorPicker ? 
+            <div className="popover">
+              <div className="cover" onClick={ this.handleClosePicker }/>
+              <TwitterPicker color={ this.state.color } onChange={ this.handleChangePicker } />
+            </div> : null
+          }
+        </div> */}
+        <Input type="submit" value="Crear"/>
+      </Form>
     )
   }
 }
