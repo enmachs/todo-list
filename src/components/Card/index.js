@@ -8,8 +8,8 @@ import CardLayout from './Layout/Layout';
 // import GroupContainer from "../../groups/containers/GroupContainer";
 
 // import { Grid } from 'mauerwerk';
-import { Drawer, Button, Col, Row } from 'antd';
-import Card from './ThumbCard/ThumbCard';
+import { Col, Row } from 'antd';
+import ThumbCard from './ThumbCard/ThumbCard';
 import FullCard from './FullCard/FullCard';
 
 // import GroupLayout from '../../groups/components/GroupLayout';
@@ -17,7 +17,11 @@ import FullCard from './FullCard/FullCard';
 class CardsContainer extends PureComponent {
   state = { 
     visible: false,
-    width: 520,
+    editingCard: {
+      key: 0,
+      name: '',
+      action: false
+    },
     singleCard: {},
     cards: data.cards
   }
@@ -25,13 +29,22 @@ class CardsContainer extends PureComponent {
 
   addCard = (newCard) => {
     const that = this;
-    newCard.id = that.state.cards.length + 1
+    newCard.id = Math.floor((Math.random() * 9999) + 1)
     that.setState({
       cards: [
         ...that.state.cards,
         newCard
       ]
     });
+  }
+
+  handleInputChange = (ev) => {
+    this.setState({
+      editingCard: {
+        ...this.state.editingCard,
+        name: ev.target.value
+      }
+    })
   }
 
   showDrawer = () => {
@@ -46,6 +59,43 @@ class CardsContainer extends PureComponent {
     });
   };
 
+  openEdit = (card) => {
+    this.setState({
+      editingCard: {
+        action: !this.state.editingCard.action,
+        name: card.name,
+        key: card.id
+      }
+    })
+  }
+
+  updateCard = (card_id) => {
+    let cloneCards = this.state.cards;
+    
+    let newArrCards = cloneCards.map(card => {
+      if(card.id == card_id) card.name = this.state.editingCard.name
+      return card
+    });
+    // .filter(item => item.id == card_id)
+    // console.log(newArrCards)
+    this.setState({
+      cards: newArrCards,
+      editingCard: {
+        action: false
+      }
+    })
+  }
+
+  destroyCard = (card_id) => {
+    let cloneCards = this.state.cards;
+    let newArrCards = cloneCards.filter(card => {
+      return card.id != card_id
+    });
+    this.setState({
+      cards: newArrCards
+    }, console.log('state changed'))
+  }
+
   selectCard = (card) => {
     this.setState({
       singleCard: card
@@ -59,14 +109,22 @@ class CardsContainer extends PureComponent {
             this.state.cards.map( card => {
               return (
                 <Col span={6} key={card.id}>
-                  <Card 
+                  <ThumbCard
                     card={card}
+                    handleEditStatusCard={this.openEdit}
                     handleSelectCard={this.selectCard}
+                    editCardStatus={this.state.editingCard}
+                    handleCardInputChange={this.handleInputChange}
+                    handleUpdateCard={this.updateCard}
+                    handleDestroyCard={this.destroyCard}
+                    editable={true}
+                    showListOptions={true}
                   />
                 </Col>
               ) 
             })
           }
+          
         </Row>
         <FullCard 
           card={this.state.singleCard}
